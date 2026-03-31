@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trident Academy - Ignite Your Passion & Creativity</title>
+    
+    <!-- Google Fonts: Libre Baskerville for everything -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Advanced Global Effects -->
+    <div class="noise-overlay"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="https://site-generator-documents.s3.eu-north-1.amazonaws.com/TAT+Logoo.png" alt="Trident Academy Logo" height="40">
+            </a>
+            <nav class="nav-links">
+                <a href="#activities" class="active">Activities</a>
+                <a href="#clubs">Clubs</a>
+                <a href="#events">Events</a>
+                <a href="#sports">Sports</a>
+            </nav>
+            <a href="#" class="btn btn-primary">Join a Club</a>
+            <button class="menu-toggle"><i class="ph ph-list"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="activities">
+            <div class="glow-bg"></div>
+            <div class="container hero-container">
+                <div class="hero-content" data-animate>
+                    <span class="badge">TRIDENT ACADEMY OF TECHNOLOGY</span>
+                    <h1>Ignite Your <br><span class="gradient-text">Passion & Creativity</span></h1>
+                    <p class="hero-text">Discover a vibrant ecosystem of over 20+ student-led clubs. At TAT, we don't just teach technology; we nurture the innovators, performers, and leaders of tomorrow.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="#" class="btn btn-primary">Explore Opportunities</a>
+                        <a href="#" class="btn btn-ghost">View Calendar</a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-badge stat-pill-left" data-animate>
+                            <span class="stat-icon"><i class="ph-fill ph-users-three"></i></span>
+                            <span>20+ Active Clubs</span>
+                        </div>
+                        <div class="stat-badge stat-pill-left" data-animate>
+                            <span class="stat-icon"><i class="ph-fill ph-confetti"></i></span>
+                            <span>15+ Annual Events</span>
+                        </div>
+                        <div class="stat-badge stat-pill-left" data-animate>
+                            <span class="stat-icon"><i class="ph-fill ph-basketball"></i></span>
+                            <span>10+ Sports Facilities</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hero Grid Images with Indian College Students -->
+                <div class="hero-visuals">
+                    <div class="collage">
+                        <div class="glass-img img-top-left" data-animate>
+                            <img src="https://loremflickr.com/400/400/indian,students?random=1" alt="Tech Lab">
+                        </div>
+                        <div class="glass-img img-top-right" data-animate>
+                            <img src="https://loremflickr.com/400/300/indian,friends?random=2" alt="Basketball Courts">
+                        </div>
+                        <div class="glass-img img-bottom-left" data-animate>
+                            <img src="https://loremflickr.com/400/500/india,campus?random=3" alt="Music Band">
+                        </div>
+                        <div class="glass-img img-bottom-right" data-animate>
+                            <img src="https://loremflickr.com/500/500/indian,college?random=4" alt="Students Collaborating">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <!-- Clubs Section -->
+        <section class="clubs" id="clubs">
+            <div class="container">
+                <div class="section-header" data-animate>
+                    <div class="header-text">
+                        <div class="section-title-wrap">
+                            <div class="thin-accent"></div>
+                            <h2>Athenaeum of Clubs</h2>
+                        </div>
+                        <p>Find your tribe among our diverse specialized student organizations.</p>
+                    </div>
+                    <a href="#" class="btn btn-ghost">View All 24 Clubs <i class="ph ph-arrow-right"></i></a>
+                </div>
+
+                <div class="clubs-grid">
+                    <!-- Cultural Column -->
+                    <div class="club-column">
+                        <div class="column-title-wrap" data-animate>
+                            <span class="gradient-pill-tag clr-violet">Cultural Synergy</span>
+                        </div>
+                        <div class="cards-grid">
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/indian,theatre?random=1" class="club-img" alt="Drama & Theatre">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-violet"><i class="ph ph-masks"></i></div>
+                                    <h4>Drama & Theatre</h4>
+                                    <p>Where expressions find their stage.</p>
+                                </div>
+                            </div>
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/indian,music?random=2" class="club-img" alt="The Melody Hub">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-violet"><i class="ph ph-music-note"></i></div>
+                                    <h4>The Melody Hub</h4>
+                                    <p>We don't do noise, we play art.</p>
+                                </div>
+                            </div>
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/india,dancers?random=33" class="club-img" alt="Rhythm Squad">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-violet"><i class="ph ph-guitar"></i></div>
+                                    <h4>Rhythm Squad</h4>
+                                    <p>Contemporary and folk dance forms.</p>
+                                </div>
+                            </div>
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/indian,paint?random=4" class="club-img" alt="Arts & Crafts">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-violet"><i class="ph ph-paint-brush"></i></div>
+                                    <h4>Arts & Crafts</h4>
+                                    <p>Canvas, clay, and visual storytelling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Column -->
+                    <div class="club-column">
+                        <div class="column-title-wrap" data-animate>
+                            <span class="gradient-pill-tag clr-blue">Technical Frontier</span>
+                        </div>
+                        <div class="cards-grid">
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/india,tech,robot?random=55" class="club-img" alt="Robo-Trident">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-blue"><i class="ph ph-robot"></i></div>
+                                    <h4>Robo-Trident</h4>
+                                    <p>Building the future, one gear at a time.</p>
+                                </div>
+                            </div>
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/indian,coding?random=6" class="club-img" alt="Code Wizards">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-blue"><i class="ph ph-code"></i></div>
+                                    <h4>Code Wizards</h4>
+                                    <p>Algorithms, hackathons, and coffee.</p>
+                                </div>
+                            </div>
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/indian,electronics?random=7" class="club-img" alt="IoT Explorers">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-blue"><i class="ph ph-wifi-high"></i></div>
+                                    <h4>IoT Explorers</h4>
+                                    <p>Connecting things to change the world.</p>
+                                </div>
+                            </div>
+                            <div class="club-card glass-panel" data-animate>
+                                <img src="https://loremflickr.com/400/300/indian,laptop?random=8" class="club-img" alt="App Genesis">
+                                <div class="club-content">
+                                    <div class="icon-badge badge-blue"><i class="ph ph-device-mobile"></i></div>
+                                    <h4>App Genesis</h4>
+                                    <p>Mobile innovations for modern life.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <!-- Sports Section -->
+        <section class="sports" id="sports">
+            <div class="container">
+                <div class="section-title-wrap text-center justify-center" data-animate>
+                    <div class="thin-accent"></div>
+                    <h2>Pulse & Play</h2>
+                </div>
+                <p class="subtitle text-center" data-animate>World-class athletic infrastructure designed to foster sportsmanship and physical excellence.</p>
+                
+                <div class="sports-scroller" data-animate>
+                    <div class="sport-card glass-panel border-spin-hover">
+                        <img src="https://loremflickr.com/600/800/india,cricket?random=1" alt="Cricket" class="sport-bg-img">
+                        <div class="sport-overlay"></div>
+                        <div class="sport-content">
+                            <i class="ph-light ph-baseball sport-icon accent-blue-txt"></i>
+                            <span>Cricket Arena</span>
+                        </div>
+                    </div>
+                    <div class="sport-card glass-panel border-spin-hover">
+                        <img src="https://loremflickr.com/600/800/india,basketball?random=2" alt="Basketball" class="sport-bg-img">
+                        <div class="sport-overlay"></div>
+                        <div class="sport-content">
+                            <i class="ph-light ph-basketball sport-icon accent-violet-txt"></i>
+                            <span>Basketball Courts</span>
+                        </div>
+                    </div>
+                    <div class="sport-card glass-panel border-spin-hover">
+                        <img src="https://loremflickr.com/600/800/india,football?random=3" alt="Football" class="sport-bg-img">
+                        <div class="sport-overlay"></div>
+                        <div class="sport-content">
+                            <i class="ph-light ph-soccer-ball sport-icon accent-glow-txt"></i>
+                            <span>Football Turf</span>
+                        </div>
+                    </div>
+                    <div class="sport-card glass-panel border-spin-hover">
+                        <img src="https://loremflickr.com/600/800/india,gym?random=4" alt="Gym" class="sport-bg-img">
+                        <div class="sport-overlay"></div>
+                        <div class="sport-content">
+                            <i class="ph-light ph-barbell sport-icon text-primary"></i>
+                            <span>Modern Gym</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="gradient-divider">
+
+        <!-- Events Section -->
+        <section class="events" id="events">
+            <div class="container">
+                <div class="section-title-wrap" data-animate>
+                    <div class="thin-accent"></div>
+                    <h2>Legacy Events</h2>
+                </div>
+                
+                <div class="events-grid">
+                    <div class="event-card glass-panel full-bleed" data-animate>
+                        <img src="https://loremflickr.com/800/600/india,festival?random=1" alt="Trifest 2024" class="event-bg">
+                        <div class="event-overlay"></div>
+                        <div class="event-badge badge-violet-bg">ANNUAL EVENT</div>
+                        
+                        <div class="event-content">
+                            <h3>Trifest</h3>
+                            <p>The flagship annual cultural celebration; arts, music, and the diverse spirit of Trident.</p>
+                            <a href="#" class="event-link accent-violet-txt">Relive the Memories <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card glass-panel full-bleed" data-animate>
+                        <img src="https://loremflickr.com/800/600/india,tech,event?random=2" alt="Technotrix 2024" class="event-bg">
+                        <div class="event-overlay"></div>
+                        <div class="event-badge badge-blue-bg">TECH CONCLAVE</div>
+                        
+                        <div class="event-content">
+                            <h3>Technotrix</h3>
+                            <p>The ultimate challenge for young minds to solve real-world problems through technology.</p>
+                            <a href="#" class="event-link accent-blue-txt">Explore Projects <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-left">
+                <p class="copyright mono-text">&copy; 2024 COLLEGEPULSE. / TRIDENT_ACADEMY_OF_TECH / V.01</p>
+            </div>
+            
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="ph ph-share-network"></i></a>
+                    <a href="#" class="social-icon"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#" class="social-icon"><i class="ph ph-twitter-logo"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Interaction Scripts -->
+    <script>
+        // Custom Cursor Logic
+        const dot = document.getElementById('cursor-dot');
+        const trail = document.getElementById('cursor-trail');
+        
+        let mouseX = 0, mouseY = 0;
+        let trailX = 0, trailY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Instantly move the small dot
+            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            dot.style.opacity = '1';
+            trail.style.opacity = '1';
+        });
+
+        // Eased animation loop for the trail
+        function animateTrail() {
+            // LERP physics for smoothness
+            trailX += (mouseX - trailX) * 0.15;
+            trailY += (mouseY - trailY) * 0.15;
+            
+            trail.style.transform = `translate(${trailX}px, ${trailY}px)`;
+            requestAnimationFrame(animateTrail);
+        }
+        animateTrail();
+        
+        // Hide cursor when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+            dot.style.opacity = '0';
+            trail.style.opacity = '0';
+        });
+
+        // Scroll Fade-In Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+                    if(entry.target.classList.contains('glass-img') || entry.target.classList.contains('club-card') || entry.target.classList.contains('sport-card') || entry.target.classList.contains('stat-badge')) {
+                         entry.target.style.transitionDelay = `${index * 0.1}s`;
+                    }
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-animate]').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
