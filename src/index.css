@@ -1,0 +1,470 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #EFE7DF;
+  }
+
+  body {
+    font-family: 'Playfair Display', serif;
+    color: rgba(62, 58, 54, 0.8);
+    background-color: #EFE7DF;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #3E3A36;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+@layer components {
+  /* Noise overlay */
+  .noise-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Custom cursor */
+  .cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 6px; height: 6px;
+    background-color: #349FCC;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    will-change: transform;
+  }
+
+  .cursor-trail {
+    position: fixed;
+    top: -12px; left: -12px;
+    width: 30px; height: 30px;
+    border: 1px solid rgba(96, 165, 250, 0.4);
+    background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    will-change: transform;
+  }
+
+  /* Scroll animations */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #2C3A8C, #E56D24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Gradient divider */
+  .gradient-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(62,58,54,0.1), transparent);
+    margin: 0;
+  }
+
+  /* Glass panel */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(62, 58, 54, 0.1);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 rounded-full font-semibold text-sm text-white bg-brand-blue transition-all duration-300;
+  }
+  .btn-primary:hover {
+    @apply shadow-lg bg-brand-glow;
+    box-shadow: 0 0 20px rgba(59,130,246,0.4);
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm bg-transparent border transition-all duration-300;
+    color: #3E3A36;
+    border-color: rgba(62,58,54,0.2);
+  }
+  .btn-ghost:hover {
+    border-color: #2C3A8C;
+    background: rgba(59,130,246,0.05);
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wide;
+    background-color: rgba(59,130,246,0.1);
+    color: #2C3A8C;
+    border: 1px solid rgba(59,130,246,0.2);
+  }
+
+  /* Sports ticker infinite scroll */
+  .sports-scroller {
+    display: flex;
+    width: max-content;
+    animation: ticker 24s linear infinite;
+  }
+
+  .sports-scroller:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Nav item underline */
+  .nav-item {
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: #2C3A8C;
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+  .nav-item:hover::after { width: 100%; }
+
+  /* Thin accent */
+  .thin-accent {
+    width: 40px;
+    height: 1px;
+    background: #2C3A8C;
+    box-shadow: 0 0 8px #2C3A8C;
+    flex-shrink: 0;
+  }
+
+  /* Footer gold */
+  .footer-gold {
+    background: linear-gradient(90deg, #c9a96e, #e8d5a3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Premium club card */
+  .premium-club-card {
+    @apply relative rounded-2xl overflow-hidden cursor-pointer;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease;
+  }
+  .premium-club-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(44,58,140,0.2);
+  }
+  .premium-club-card:hover .premium-club-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .premium-club-img {
+    @apply w-full object-cover;
+    height: 280px;
+  }
+  .premium-club-content {
+    @apply absolute bottom-0 left-0 right-0 p-6;
+    background: linear-gradient(to top, rgba(44,58,140,0.95) 0%, transparent 100%);
+    transform: translateY(10px);
+    opacity: 0.9;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .premium-icon-badge {
+    @apply w-10 h-10 rounded-full flex items-center justify-center text-white mb-3;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    font-size: 1.2rem;
+  }
+  .premium-club-content h4 {
+    @apply text-white text-lg font-bold mb-1;
+  }
+  .premium-club-content p {
+    @apply text-white/70 text-sm;
+  }
+
+  /* Sport card */
+  .sport-card {
+    @apply relative rounded-xl overflow-hidden flex-shrink-0;
+    width: 260px;
+    height: 340px;
+    margin-right: 24px;
+  }
+  .sport-bg-img {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+  .sport-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(to top, rgba(44,58,140,0.7) 0%, transparent 60%);
+  }
+  .sport-content {
+    @apply absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-2;
+  }
+  .sport-icon {
+    font-size: 2rem;
+  }
+  .sport-content span {
+    @apply font-bold text-white text-base;
+  }
+
+  /* Event card */
+  .event-card {
+    @apply relative rounded-2xl overflow-hidden;
+    height: 360px;
+  }
+  .event-bg {
+    @apply absolute inset-0 w-full h-full object-cover;
+    transition: transform 0.5s ease;
+  }
+  .event-card:hover .event-bg {
+    transform: scale(1.05);
+  }
+  .event-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(to top, rgba(15,15,30,0.85) 0%, transparent 60%);
+  }
+  .event-badge {
+    @apply absolute top-5 left-5 px-3 py-1 rounded-full text-xs font-bold tracking-widest text-white;
+  }
+  .badge-violet-bg { background: #E56D24; }
+  .badge-blue-bg { background: #2C3A8C; }
+  .event-content {
+    @apply absolute bottom-0 left-0 right-0 p-7;
+  }
+  .event-content h3 {
+    @apply text-white text-2xl font-bold mb-2;
+  }
+  .event-content p {
+    @apply text-white/70 text-sm mb-4;
+  }
+  .event-link {
+    @apply inline-flex items-center gap-2 font-semibold text-sm;
+    transition: gap 0.2s;
+  }
+  .event-link:hover { gap: 8px; }
+
+  /* Milestone card */
+  .milestone-ec {
+    @apply relative rounded-2xl overflow-hidden;
+    height: 360px;
+  }
+  .milestone-ec-img {
+    @apply absolute inset-0 w-full h-full object-cover;
+    transition: transform 0.5s ease;
+  }
+  .milestone-ec:hover .milestone-ec-img { transform: scale(1.05); }
+  .milestone-ec-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(to top, rgba(15,15,30,0.9) 0%, transparent 55%);
+  }
+  .milestone-ec-date {
+    @apply absolute top-5 right-5 flex items-center gap-2 text-white/80 text-xs font-semibold;
+  }
+  .milestone-ec-body {
+    @apply absolute bottom-0 left-0 right-0 p-6;
+  }
+  .milestone-ec-tag {
+    @apply text-xs font-black tracking-widest text-brand-glow;
+  }
+  .milestone-ec-title {
+    @apply text-white text-xl font-bold mt-1 mb-2;
+  }
+  .milestone-ec-desc {
+    @apply text-white/60 text-sm mb-4;
+  }
+  .milestone-ec-cta {
+    @apply inline-flex items-center gap-2 text-sm font-semibold text-white/90;
+    transition: gap 0.2s;
+  }
+  .milestone-ec-cta:hover { gap: 8px; }
+
+  /* Bento grid facility cards */
+  .facility-bento-card {
+    @apply relative rounded-2xl overflow-hidden;
+  }
+  .facility-bento-img {
+    @apply absolute inset-0 w-full h-full object-cover;
+    transition: transform 0.5s ease;
+  }
+  .facility-bento-card:hover .facility-bento-img { transform: scale(1.05); }
+  .facility-bento-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(to top, rgba(15,15,30,0.8) 0%, transparent 60%);
+  }
+  .facility-bento-content {
+    @apply absolute bottom-0 left-0 right-0 p-6 text-white;
+  }
+  .facility-bento-header {
+    @apply flex items-center gap-3;
+  }
+  .facility-bento-icon {
+    @apply w-10 h-10 rounded-full flex items-center justify-center text-white;
+    background: rgba(255,255,255,0.15);
+    font-size: 1.1rem;
+  }
+  .facility-bento-content h3 {
+    @apply text-white text-lg font-bold;
+  }
+  .facility-bento-content p {
+    @apply text-white/70 text-sm mt-2;
+  }
+
+  /* Voices card */
+  .voices-card {
+    @apply relative rounded-3xl p-10 md:p-14;
+    background: white;
+    box-shadow: 0 20px 80px rgba(44,58,140,0.12);
+    border: 1px solid rgba(44,58,140,0.08);
+  }
+  .voices-bg-quote {
+    @apply absolute top-6 left-8 text-9xl font-serif leading-none pointer-events-none select-none;
+    color: rgba(44,58,140,0.06);
+    font-size: 10rem;
+  }
+  .voices-accent-line {
+    width: 50px; height: 3px;
+    background: linear-gradient(90deg, #2C3A8C, #E56D24);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  .voices-quote {
+    @apply text-lg md:text-xl leading-relaxed font-medium relative z-10;
+    color: #3E3A36;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  .voices-divider {
+    height: 1px;
+    background: rgba(62,58,54,0.1);
+    margin-bottom: 1.5rem;
+  }
+  .voices-author {
+    @apply flex items-center gap-4;
+  }
+  .voices-author-img {
+    @apply w-14 h-14 rounded-full object-cover;
+    border: 2px solid #2C3A8C;
+    padding: 2px;
+  }
+  .voices-author-name {
+    @apply block font-bold text-base;
+    color: #3E3A36;
+  }
+  .voices-author-detail {
+    @apply block text-xs text-gray-500;
+  }
+
+  /* Innovation/list items */
+  .innov-list-item {
+    @apply flex items-center gap-4 p-4 rounded-xl transition-all duration-300 cursor-pointer;
+    border: 1px solid rgba(62,58,54,0.08);
+    background: white;
+  }
+  .innov-list-item:hover {
+    border-color: #2C3A8C;
+    box-shadow: 0 4px 20px rgba(44,58,140,0.1);
+    transform: translateX(4px);
+  }
+  .innov-thumb-img {
+    @apply w-16 h-16 rounded-lg object-cover flex-shrink-0;
+  }
+  .innov-item-content h3 {
+    @apply font-bold text-base;
+    color: #3E3A36;
+  }
+
+  /* Research card */
+  .research-card {
+    @apply p-8 rounded-2xl bg-white;
+    border: 1px solid rgba(62,58,54,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .research-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(44,58,140,0.12);
+  }
+
+  /* Leader card */
+  .leader-card img {
+    transition: transform 0.3s;
+  }
+  .leader-card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Footer styles */
+  .footer-link {
+    @apply flex items-center gap-3 text-sm transition-colors duration-200;
+    color: rgba(62,58,54,0.6);
+  }
+  .footer-link:hover { color: #2C3A8C; }
+  .footer-link-line {
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    background: #2C3A8C;
+    transition: width 0.25s ease;
+    flex-shrink: 0;
+  }
+  .footer-link:hover .footer-link-line { width: 16px; }
+  .footer-contact-item {
+    @apply flex items-start gap-3 text-sm transition-colors duration-200;
+    color: rgba(62,58,54,0.7);
+  }
+  .footer-contact-item:hover { color: #2C3A8C; }
+  .footer-contact-icon {
+    @apply w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm;
+    background: rgba(44,58,140,0.08);
+    color: #2C3A8C;
+  }
+  .footer-social-link {
+    @apply w-10 h-10 rounded-full flex items-center justify-center text-base transition-all duration-200;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-social-link:hover {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    transform: translateY(-2px);
+  }
+}
