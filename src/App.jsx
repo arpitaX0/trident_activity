@@ -9,6 +9,7 @@ import Events from './components/Events'
 import Innovation from './components/Innovation'
 import Facilities from './components/Facilities'
 import Milestones from './components/Milestones'
+import Voices from './components/Voices'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -28,24 +29,28 @@ export default function App() {
         <Clubs />
         <hr className="gradient-divider" />
 
-        <Leadership />
-        <hr className="gradient-divider" />
-
-        <Sports />
+        <Events />
         <hr className="gradient-divider" />
 
         <Research />
         <hr className="gradient-divider" />
 
-        <Events />
+        <Sports />
+        <hr className="gradient-divider" />
+
+        <Facilities />
         <hr className="gradient-divider" />
 
         <Innovation />
         <hr className="gradient-divider" />
 
-        <Facilities />
+        <Leadership />
+        <hr className="gradient-divider" />
 
         <Milestones />
+        <hr className="gradient-divider" />
+
+        <Voices />
       </main>
 
       <Footer />

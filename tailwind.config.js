@@ -20,7 +20,7 @@ export default {
       fontFamily: {
         display: ['"Playfair Display"', 'serif'],
         body: ['"Playfair Display"', 'serif'],
-        inter: ['Inter', 'sans-serif'],
+        inter: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       animation: {
         'ticker': 'ticker 20s linear infinite',

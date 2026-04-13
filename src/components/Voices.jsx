@@ -1,7 +1,26 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+const testimonials = [
+  {
+    quote: "It's a new world and a completely new life for students stepping into Trident Education. New friends, a lively environment, experienced faculty, renewed ambitions and inspired goals are what every student can look forward to at Trident.",
+    name: 'Student Experience',
+    detail: 'Trident Academy of Technology',
+  },
+  {
+    quote: "Trident is all about opportunity. The opportunity to make the best of friends, to meet interesting people from all over, to learn and grow under the guidance of the most respected academicians, to study in an innovative environment, and to land the best of jobs.",
+    name: 'Campus Life',
+    detail: 'TAT Student Community',
+  },
+  {
+    quote: "Education in Trident is not just about books and classrooms. A student can achieve and accomplish many goals because of the easy access provided to a variety of facilities. Trident is second to none in this respect.",
+    name: 'Holistic Growth',
+    detail: 'Trident Activities',
+  },
+]
 
 export default function Voices() {
   const sectionRef = useRef(null)
+  const [active, setActive] = useState(0)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,78 +33,98 @@ export default function Voices() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % testimonials.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const t = testimonials[active]
+
   return (
-    <section ref={sectionRef} className="py-[100px]" style={{ background: '#EFE7DF' }} id="voices">
-      <div className="max-w-[1280px] mx-auto px-6 flex flex-col items-center">
-        <div className="w-full max-w-[820px]">
-          {/* Heading — left-aligned like reference */}
-          <div className="mb-12" data-animate>
+    <section ref={sectionRef} className="py-[100px]" style={{ background: '#F5EEEC' }} id="voices">
+      <div className="max-w-[1280px] mx-auto px-6">
+        <div className="text-center mb-14" data-animate>
           <p
             className="font-inter text-[11px] font-black tracking-[0.22em] uppercase mb-3"
-            style={{ color: '#2C3A8C' }}
+            style={{ color: '#E56D24' }}
           >
-            ALUMNI VOICES
+            THE TRIDENT SPIRIT
           </p>
-          <h2 className="font-display font-bold" style={{ fontSize: 'clamp(32px,4vw,52px)', color: '#3E3A36', lineHeight: 1.1 }}>
-            Voices of{' '}
-            <em
-              className="not-italic italic"
-              style={{
-                background: 'linear-gradient(135deg, #2C3A8C, #E56D24)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Trident
-            </em>
-          </h2>
+          <h2 className="section-title">Voices of Trident</h2>
         </div>
 
-        {/* Quote Card — white, centered, matching reference */}
-        <div
-          data-animate
-          className="relative rounded-3xl p-10 md:p-14"
-          style={{
-            background: 'white',
-            boxShadow: '0 4px 40px rgba(0,0,0,0.06)',
-            border: '1px solid rgba(62,58,54,0.06)',
-            maxWidth: 820,
-          }}
-        >
-          {/* Large grey quote mark + gold accent line */}
+        <div data-animate className="max-w-3xl mx-auto">
           <div
-            className="font-serif leading-none mb-4"
-            style={{ fontSize: '4rem', color: 'rgba(62,58,54,0.08)', lineHeight: 1, marginBottom: 0 }}
+            className="relative rounded-3xl p-10 md:p-14"
+            style={{
+              background: 'white',
+              boxShadow: '0 20px 80px rgba(44,58,140,0.12)',
+              border: '1px solid rgba(44,58,140,0.08)',
+            }}
           >
-            &#8220;
-          </div>
-          <div
-            className="w-12 h-0.5 mb-6"
-            style={{ background: '#c9a96e' }}
-          ></div>
+            {/* Background quote mark */}
+            <span
+              className="absolute top-6 left-8 leading-none pointer-events-none select-none font-serif"
+              style={{ color: 'rgba(44,58,140,0.06)', fontSize: '10rem' }}
+            >
+              "
+            </span>
 
-          <blockquote
-            className="font-display italic font-medium mb-8"
-            style={{ fontSize: 'clamp(1rem,2vw,1.25rem)', lineHeight: 1.75, color: '#3E3A36' }}
-          >
-            "The ecosystem at Trident is unparalleled. It provides the exact blend of rigorous academics and creative freedom needed to thrive in today's rapid technological landscape."
-          </blockquote>
+            {/* Accent line */}
+            <div
+              className="mb-6"
+              style={{
+                width: 50,
+                height: 3,
+                background: 'linear-gradient(90deg, #2C3A8C, #E56D24)',
+                borderRadius: 2,
+              }}
+            ></div>
 
-          <div className="h-px mb-6" style={{ background: 'rgba(62,58,54,0.1)' }}></div>
+            {/* Quote */}
+            <p
+              className="font-display text-lg md:text-xl leading-relaxed font-medium italic relative z-10 mb-8"
+              style={{ color: '#3E3A36' }}
+            >
+              "{t.quote}"
+            </p>
 
-          <div className="flex items-center gap-4">
-            <img
-              src="https://loremflickr.com/120/120/india,portrait?random=31"
-              alt="Aarav Sharma"
-              className="w-12 h-12 rounded-full object-cover flex-shrink-0"
-              style={{ border: '2px solid #2C3A8C', padding: 2 }}
-            />
-            <div>
-              <span className="block font-bold text-base" style={{ color: '#3E3A36' }}>Aarav Sharma</span>
-              <span className="block text-xs" style={{ color: 'rgba(62,58,54,0.5)' }}>Alumnus, Class of '23 · Data Scientist</span>
+            {/* Divider */}
+            <div className="mb-6" style={{ height: 1, background: 'rgba(62,58,54,0.1)' }}></div>
+
+            {/* Author */}
+            <div className="flex items-center gap-4">
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center text-xl"
+                style={{ background: 'rgba(44,58,140,0.08)', color: '#2C3A8C' }}
+              >
+                <i className="ph-fill ph-graduation-cap"></i>
+              </div>
+              <div>
+                <span className="block font-bold text-base">{t.name}</span>
+                <span className="block text-xs" style={{ color: 'rgba(62,58,54,0.5)' }}>{t.detail}</span>
+              </div>
             </div>
-          </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  className="border-none cursor-pointer transition-all"
+                  style={{
+                    width: i === active ? 24 : 8,
+                    height: 8,
+                    borderRadius: 4,
+                    background: i === active ? '#2C3A8C' : 'rgba(44,58,140,0.15)',
+                  }}
+                  aria-label={`View quote ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
