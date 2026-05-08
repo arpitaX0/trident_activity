@@ -7,15 +7,26 @@ export default {
   theme: {
     extend: {
       colors: {
+        'primary': '#2C3A8C',
+        'secondary': '#A59381',
+        'soft': '#EAE0D5',
         'brand-blue': '#2C3A8C',
         'brand-orange': '#E56D24',
         'brand-glow': '#349FCC',
-        'brand-red': '#E63946',
+        'brand-red': '#C5282F',
+        'brand-yellow': '#F0B823',
+        'brand-sky': '#349FCC',
+        'brand-green': '#2D9A47',
+        'bg-light': '#EFE7DF',
+        'bg-soft': '#F5EEEC',
         'bg-base': '#EFE7DF',
         'bg-surface': '#F5EEEC',
         'bg-elevated': '#EAE0D5',
+        'text-dark': '#3E3A36',
         'text-primary': '#3E3A36',
         'text-secondary': 'rgba(62,58,54,0.8)',
+        'inst-blue': '#2C3A8C',
+        'inst-yellow': '#E8BD63',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'serif'],

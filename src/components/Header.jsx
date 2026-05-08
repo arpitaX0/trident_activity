@@ -15,9 +15,6 @@ const NAV_LINKS = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  
-  const navActive = scrolled || hovered || mobileOpen;
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
@@ -43,9 +40,7 @@ export default function Header() {
       </div>
 
       <header 
-        className={"relative transition-all duration-500 " + (navActive ? "bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] py-3" : "bg-transparent py-5")}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        className={"relative transition-all duration-500 bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] " + (scrolled ? "py-3" : "py-5")}
       >
         <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
             
@@ -53,9 +48,9 @@ export default function Header() {
           <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 group cursor-pointer no-underline">
             <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
             <div className="hidden sm:flex flex-col justify-center">
-              <div className={"serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase transition-colors duration-500 " + (navActive ? "text-[#3E3A36]" : "text-white")}>Trident</div>
-              <div className={"w-full h-[1px] my-[3px] transition-all duration-500 " + (navActive ? "bg-gradient-to-r from-[#1B4D8E] to-transparent" : "bg-gradient-to-r from-white/50 to-transparent")}></div>
-              <div className={"text-[9px] md:text-[10px] font-semibold tracking-[0.22em] uppercase leading-none transition-colors duration-500 " + (navActive ? "text-[#1B4D8E]" : "text-white/80")}>Academy of Technology</div>
+              <div className="serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase text-[#3E3A36]">Trident</div>
+              <div className="w-full h-[1px] my-[3px] bg-gradient-to-r from-[#1B4D8E] to-transparent"></div>
+              <div className="text-[9px] md:text-[10px] font-semibold tracking-[0.22em] uppercase leading-none text-[#1B4D8E]">Academy of Technology</div>
             </div>
           </a>
 
@@ -68,8 +63,8 @@ export default function Header() {
                     href={item.href} 
                     className={"text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 no-underline " + 
                       (item.label === 'Activities' 
-                        ? (navActive ? "text-[#253386] border-b-2 border-[#253386]" : "text-white border-b-2 border-white") 
-                        : (navActive ? "text-[#3E3A36] hover:text-[#1B4D8E]" : "text-white/90 hover:text-white")
+                        ? "text-[#253386] border-b-2 border-[#253386]" 
+                        : "text-[#3E3A36] hover:text-[#1B4D8E]"
                       )
                     }
                   >
@@ -87,7 +82,7 @@ export default function Header() {
 
           {/* Mobile Toggle */}
           <button 
-            className={"lg:hidden p-2 rounded-lg transition-colors active:scale-95 z-50 relative " + (navActive ? "text-[#253386] bg-soft hover:bg-primary/10" : "text-white bg-white/10 hover:bg-white/20")}
+            className="lg:hidden p-2 rounded-lg transition-colors active:scale-95 z-50 relative text-[#253386] bg-soft hover:bg-primary/10"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle Menu"
           >
