@@ -1,167 +1,165 @@
+import logo from "../assets/logo.png";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+
 export default function Footer() {
-  const academicsLinks = [
-    { href: '#', label: 'Undergraduate Studies' },
-    { href: '#', label: 'Postgraduate Studies' },
-    { href: '#', label: 'Doctoral Programs' },
-    { href: '#', label: 'Research Centers' },
-    { href: '#', label: 'Academic Calendar' },
-  ]
-
-  const campusLinks = [
-    { href: '#', label: 'Student Hostels' },
-    { href: '#', label: 'Clubs & Societies' },
-    { href: '#', label: 'Sports & Recreation' },
-    { href: '#', label: 'Health & Wellness' },
-    { href: '#', label: 'Campus Safety' },
-  ]
-
-  const resourcesLinks = [
-    { href: '#', label: 'Admissions Portal' },
-    { href: '#', label: 'Alumni Network' },
-    { href: '#', label: 'Career Placements' },
-    { href: '#', label: 'NIRF Data' },
-    { href: '#', label: 'Tenders & Notices' },
-  ]
-
   return (
-    <footer className="footer-dark relative overflow-hidden pt-20 pb-0" id="mainFooter">
-      {/* ─── Large Watermark — Bottom Right ─── */}
-      <div className="absolute -bottom-24 -right-24 w-[500px] h-[500px] opacity-[0.05] pointer-events-none select-none z-0">
-        <img
-          src="https://site-generator-documents.s3.eu-north-1.amazonaws.com/TAT+Logoo.png"
-          alt=""
-          className="w-full h-full object-contain grayscale brightness-200"
-        />
+    <footer className="bg-[#1A1817] text-[#EFE7DF]/80 pt-24 pb-12 relative overflow-hidden font-sans border-t-4 border-[#E5AA3E]">
+      
+      {/* Skewed Background Accent */}
+      <div className="absolute top-0 right-0 w-1/4 h-full bg-white/[0.02] -skew-x-12 translate-x-20 pointer-events-none"></div>
+
+      {/* Subtle Background Logo Watermark */}
+      <div className="absolute right-0 bottom-0 w-full h-full overflow-hidden pointer-events-none opacity-[0.03] flex items-end justify-end">
+        <img src={logo} alt="" className="w-[400px] h-[400px] object-contain transform translate-y-16 translate-x-16" />
       </div>
 
-      <div className="max-w-[1280px] mx-auto px-6 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 xl:px-12 relative z-10">
         
-        {/* ─── Newsletter Card ─── */}
-        <div className="newsletter-card">
-          <div className="max-w-md">
-            <h3 className="newsletter-title">
-              Stay informed,<br />
-              stay <span className="text-brand-orange">ahead.</span>
+        {/* Subscription block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-16 mb-24 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-2 h-full bg-[#E5AA3E]"></div>
+          {/* Asymmetric corner accents */}
+          <div className="absolute top-4 right-4 w-12 h-12 border-t border-r border-[#E5AA3E]/10 hidden md:block" />
+          <div className="absolute bottom-4 left-16 w-8 h-8 border-b border-l border-[#8B6E66]/10 hidden md:block" />
+          
+          <div className="lg:col-span-7">
+            <h3 className="font-serif text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+              Stay informed, <br/>stay <span className="text-[#E5AA3E]">ahead.</span>
             </h3>
-            <p className="text-sm leading-relaxed text-white/50">
+            <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
               Subscribe to the official Trident Newsletter for updates on research, events, and campus developments.
             </p>
           </div>
-          <div className="flex-1 max-w-lg w-full">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="newsletter-input"
-              />
-              <button className="newsletter-btn">
-                Subscribe <i className="ph ph-arrow-right"></i>
-              </button>
-            </div>
-            <p className="mt-3 text-[10px] font-black tracking-widest text-white/30 uppercase">
-              No Spam. Only updates that matter.
-            </p>
+
+          <div className="lg:col-span-5 flex flex-col justify-center">
+             <div className="flex flex-col sm:flex-row gap-4">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  className="bg-white/5 border border-white/10 text-white placeholder-white/30 px-8 py-5 rounded-xl flex-grow outline-none focus:border-[#E5AA3E] transition-all"
+                />
+                <button className="bg-[#E5AA3E] hover:bg-[#c99535] text-[#1A1817] px-10 py-5 rounded-xl font-black text-[12px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 whitespace-nowrap">
+                  Subscribe <ArrowRight size={18} />
+                </button>
+             </div>
+             <p className="mt-4 text-[10px] font-bold text-gray-500 uppercase tracking-widest">No spam. Only updates that matter.</p>
           </div>
         </div>
 
-        {/* ─── Main Footer Grid ─── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
-          {/* Identity Column */}
-          <div className="space-y-10">
-            <div className="flex items-center gap-4">
-              {/* Colorful Logo Placeholder as per image */}
-              <div className="w-16 h-16 rounded-full overflow-hidden bg-white/5 p-1">
-                <img
-                  src="https://site-generator-documents.s3.eu-north-1.amazonaws.com/TAT+Logoo.png"
-                  alt="Trident Emblem"
-                  className="w-full h-full object-contain"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-4">
+            <a href="https://tat.tekkzy.com/" className="flex items-center gap-5 mb-10 no-underline">
+              <img src={logo} alt="TAT Logo" className="w-[64px] h-[64px] object-contain" />
+              <div className="h-12 w-[1px] bg-white/10 mx-2"></div>
+              <div className="flex flex-col justify-center">
+                <div className="font-serif text-[28px] text-white leading-none font-black uppercase">Trident</div>
+                <div className="text-[10px] font-bold text-[#8B6E66] tracking-[.3em] uppercase mt-2">Academy of Technology</div>
               </div>
-              <div className="flex flex-col">
-                <span className="font-display text-2xl font-black text-white tracking-wider leading-none uppercase">Trident</span>
-                <span className="font-inter text-[9px] font-bold text-white/30 tracking-[0.2em] uppercase mt-1">Academy of Technology</span>
-              </div>
-            </div>
-
-            <p className="text-sm leading-relaxed text-white/40 max-w-sm">
+            </a>
+            
+            <p className="text-gray-400 text-[16px] leading-[1.8] mb-10">
               Empowering the next generation of global leaders through world-class technical education, innovative research, and an unwavering commitment to excellence.
             </p>
-
-            <div className="space-y-5">
-              {[
-                { icon: 'ph ph-map-pin', text: 'F2/A, Chandaka Industrial Estate, In front of Infocity, Bhubaneswar, Odisha, Pin: 751024, India' },
-                { icon: 'ph ph-phone', text: '+91 98611 91195' },
-                { icon: 'ph ph-envelope-simple', text: 'info@trident.ac.in' }
-              ].map((item, i) => (
-                <div key={i} className="footer-contact-row group">
-                  <div className="footer-contact-square">
-                    <i className={item.icon}></i>
-                  </div>
-                  <span className="leading-snug pt-1">{item.text}</span>
-                </div>
-              ))}
+            
+            <div className="grid grid-cols-1 gap-6">
+              <a href="https://contactus-tat.tekkzy.com/" className="flex items-start gap-4 hover:text-white transition-colors group no-underline">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66] flex-shrink-0"><MapPin size={20}/></div>
+                <div className="text-sm font-medium leading-relaxed">F2/A, Chandaka Industrial Estate,<br/>In front of Infocity, Bhubaneswar,<br/>Odisha, Pin: 751024, India</div>
+              </a>
+              <a href="tel:+919861191195" className="flex items-center gap-4 hover:text-white transition-colors group no-underline">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Phone size={20}/></div>
+                <div className="text-sm font-bold">+91 98611 91195</div>
+              </a>
+              <a href="mailto:info@trident.ac.in" className="flex items-center gap-4 hover:text-white transition-colors group no-underline">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-[#8B6E66]"><Mail size={20}/></div>
+                <div className="text-sm font-bold">info@trident.ac.in</div>
+              </a>
             </div>
           </div>
+
 
           {/* Links Columns */}
-          <div>
-            <h5 className="footer-heading">Academics</h5>
-            <ul className="space-y-4">
-              {academicsLinks.map(l => (
-                <li key={l.label}><a href={l.href} className="footer-link hover:translate-x-1 transition-transform">{l.label}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h5 className="footer-heading">Campus Life</h5>
-            <ul className="space-y-4">
-              {campusLinks.map(l => (
-                <li key={l.label}><a href={l.href} className="footer-link hover:translate-x-1 transition-transform">{l.label}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h5 className="footer-heading">Resources</h5>
-            <ul className="space-y-4">
-              {resourcesLinks.map(l => (
-                <li key={l.label}><a href={l.href} className="footer-link hover:translate-x-1 transition-transform">{l.label}</a></li>
-              ))}
-            </ul>
+          <div className="lg:col-span-8 grid grid-cols-2 lg:grid-cols-3 gap-12">
+            {[
+              { h:"Academics", ls:[
+                { t:"Undergraduate Studies", h:"https://academics-tat.tekkzy.com/departemnts-of-engineering/" },
+                { t:"Postgraduate Studies", h:"https://academics-tat.tekkzy.com/" },
+                { t:"Doctoral Programs", h:"https://academics-tat.tekkzy.com/" },
+                { t:"Research Centers", h:"https://research-tat.tekkzy.com/" },
+                { t:"Academic Calendar", h:"https://academics-tat.tekkzy.com/calenders/" },
+              ] },
+              { h:"Campus Life", ls:[
+                { t:"Student Hostels", h:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Clubs & Societies", h:"https://activities-tat.tekkzy.com/" },
+                { t:"Sports & Recreation", h:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Health & Wellness", h:"https://campuslife-tat.tekkzy.com/" },
+                { t:"Campus Safety", h:"https://campuslife-tat.tekkzy.com/" },
+              ] },
+              { h:"Resources", ls:[
+                { t:"Admissions Portal", h:"https://admissions-tat.tekkzy.com/" },
+                { t:"Alumni Network", h:"https://alumni-tat.tekkzy.com/" },
+                { t:"Career Placements", h:"https://placements-tat.tekkzy.com" },
+                { t:"NIRF Data", h:"https://academics-tat.tekkzy.com/" },
+                { t:"Tenders & Notices", h:"https://tat.tekkzy.com/" },
+              ] },
+            ].map((col) => (
+              <div key={col.h}>
+                <div className="relative mb-10">
+                   <div className="absolute -left-4 top-0 w-8 h-8 bg-[#8B6E66]/10 -skew-x-12"></div>
+                   <h5 className="font-serif text-white font-black text-[15px] uppercase tracking-widest relative z-10">{col.h}</h5>
+                </div>
+                <ul className="space-y-5">
+                  {col.ls.map((link) => (
+                    <li key={link.t}>
+                      <a href={link.h} className="text-[14px] font-bold text-gray-500 hover:text-[#E5AA3E] transition-all flex items-center gap-3 group no-underline">
+                        <span className="w-0 h-[1px] bg-[#E5AA3E] group-hover:w-4 transition-all duration-300" />
+                        {link.t}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* ─── Bottom Bar ─── */}
-        <div className="py-8 border-t border-white/5">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
-              <span className="font-inter text-[10px] font-black tracking-[0.2em] text-white/20 uppercase">
-                © 2026 TRIDENT ACADEMY OF TECHNOLOGY. ALL RIGHTS RESERVED.
-              </span>
-              <div className="flex gap-6">
-                {['Privacy Policy', 'Disclaimer', 'Terms of Use'].map(l => (
-                  <a key={l} href="#" className="font-inter text-[10px] font-black tracking-[0.15em] text-white/20 uppercase hover:text-white transition-colors">{l}</a>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex items-center gap-8">
-              <div className="flex gap-4">
-                {['ph ph-facebook-logo', 'ph ph-twitter-logo', 'ph ph-linkedin-logo', 'ph ph-instagram-logo'].map((icon, i) => (
-                  <a key={i} href="#" className="footer-social-link"><i className={icon}></i></a>
-                ))}
-              </div>
+        
+        {/* Footer Bottom */}
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center">
+            <span className="text-[11px] font-black uppercase tracking-[.2em] text-gray-600">
+              © 2026 Trident Academy of Technology. All rights reserved.
+            </span>
+            <div className="flex gap-4 text-[11px] font-bold text-gray-600">
+               {["Privacy Policy", "Disclaimer", "Terms of Use"].map(l=>(
+                 <a key={l} href="https://tat.tekkzy.com/" className="hover:text-[#E5AA3E] transition-colors uppercase tracking-wider no-underline">{l}</a>
+               ))}
             </div>
           </div>
           
-          <div className="mt-8 pt-8 border-t border-white/[0.03] text-center">
-            <p className="font-inter text-[9px] font-medium tracking-[0.2em] text-white/10 uppercase">
-              Crafted with AI by <span className="text-white/20 font-bold">Tekkzy</span> — AI-Powered Intelligent Cloud Solutions
-            </p>
+          <div className="flex items-center gap-5">
+            {[
+              { icon: "ph-fill ph-facebook-logo", label: "Facebook" },
+              { icon: "ph-fill ph-twitter-logo", label: "Twitter" },
+              { icon: "ph-fill ph-linkedin-logo", label: "LinkedIn" },
+              { icon: "ph-fill ph-instagram-logo", label: "Instagram" },
+            ].map((social) => (
+              <a key={social.label} href="https://tat.tekkzy.com/" className="text-gray-500 hover:text-[#E5AA3E] transition-colors text-xl no-underline">
+                <i className={social.icon} />
+              </a>
+            ))}
           </div>
         </div>
+
+        {/* Built by credit */}
+        <div className="text-center mt-8 pt-6 border-t border-white/5">
+          <span className="text-[11px] font-medium text-gray-600 tracking-wider">
+            Crafted with AI by <a href="https://tekkzy.com" className="text-gray-400 hover:text-[#E5AA3E] transition-colors font-bold no-underline">Tekkzy</a> — AI-Powered Intelligent Cloud Solutions
+          </span>
+        </div>
+        
       </div>
     </footer>
-  )
+  );
 }

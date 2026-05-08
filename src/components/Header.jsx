@@ -1,182 +1,129 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
+import { Users, Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
+
+const NAV_LINKS = [
+  { label: "About",       href: "https://about-tat.tekkzy.com/" },
+  { label: "Admissions",  href: "https://admissions-tat.tekkzy.com/" },
+  { label: "Academics",   href: "https://academics-tat.tekkzy.com/" },
+  { label: "Research",    href: "https://research-tat.tekkzy.com/" },
+  { label: "Campus Life", href: "https://campuslife-tat.tekkzy.com/" },
+  { label: "Activities",  href: "https://activities-tat.tekkzy.com/" },
+  { label: "Contact Us",  href: "https://contactus-tat.tekkzy.com/" },
+];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  
+  const navActive = scrolled || hovered || mobileOpen;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const navLinks = [
-    { name: 'About', href: 'https://about-tat.tekkzy.com/' },
-    { name: 'Admissions', href: 'https://admissions-tat.tekkzy.com/' },
-    { name: 'Academics', href: 'https://academics-tat.tekkzy.com/' },
-    { name: 'Research', href: 'https://research-tat.tekkzy.com/' },
-    { name: 'Campus Life', href: 'https://campuslife-tat.tekkzy.com/' },
-    { name: 'Activities', href: 'https://activities-tat.tekkzy.com/' },
-    { name: 'Contact Us', href: 'https://contactus-tat.tekkzy.com/' },
-  ]
+    const fn = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full z-[1000]" id="siteHeaderWrap">
-      {/* Utility Bar */}
-      <div
-        className={`border-b border-white/10 transition-all duration-500 overflow-hidden ${
-          isScrolled ? 'max-h-0 opacity-0 pointer-events-none' : 'max-h-[44px] opacity-100'
-        }`}
-        style={{ background: '#2C3A8C' }}
-        id="utilityBar"
-      >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 py-2.5 flex justify-between items-center text-[11px] font-bold text-white/80 uppercase tracking-[0.18em] font-inter">
-          <span>
-            Affiliated to BPUT &nbsp;<span className="opacity-40">|</span>&nbsp; NAAC 'A' Accredited
+    <div className="fixed top-0 left-0 w-full z-50">
+      {/* Slim Utility Bar */}
+      <div className={"hidden lg:block border-b border-white/5 transition-all duration-500 " + (scrolled ? "max-h-0 overflow-hidden py-0 border-b-0" : "max-h-20 py-1.5")} style={{ background: 'linear-gradient(135deg, #1a2660 0%, #2C3A8C 60%, #3a4aad 100%)' }}>
+        <div className="max-w-[1400px] mx-auto px-6 xl:px-12 flex items-center justify-between">
+          <span className="text-[10px] font-semibold text-white/50 uppercase tracking-[0.2em]">
+            Approved by AICTE &nbsp;|&nbsp; Affiliated to BPUT &nbsp;|&nbsp; NAAC Accredited &nbsp;|&nbsp; NBA Accredited for 6 Programmes
           </span>
-          <a
-            href="https://alumni-tat.tekkzy.com/"
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
-          >
-            <i className="ph ph-users-three" style={{ fontSize: 12 }}></i> Alumni
-          </a>
+          <div className="flex items-center gap-3">
+            {/* Alumni Portal */}
+            <a href="https://alumni-tat.tekkzy.com/" className="flex items-center gap-1.5 text-[10px] font-bold text-[#E8BD63] uppercase tracking-widest hover:text-[#F0D080] transition-colors whitespace-nowrap">
+              <Users size={11}/> Alumni
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Main Header */}
-      <header
-        className={`bg-white border-b border-black/5 shadow-sm transition-all duration-500 ${
-          isScrolled ? 'py-3 shadow-md' : 'py-5'
-        }`}
-        id="mainHeader"
+      <header 
+        className={"relative transition-all duration-500 " + (navActive ? "bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] py-3" : "bg-transparent py-5")}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between gap-6">
-          {/* Logo */}
-          <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 no-underline flex-shrink-0">
-            <img
-              src="https://site-generator-documents.s3.eu-north-1.amazonaws.com/TAT+Logoo.png"
-              alt="TAT Logo"
-              className="object-contain block"
-              style={{ width: 52, height: 52 }}
-            />
-            <div className="flex flex-col justify-center">
-              <span className="font-display text-[22px] font-black text-[#3E3A36] leading-none tracking-[0.04em] uppercase">
-                Trident
-              </span>
-              <div
-                className="w-full my-1"
-                style={{ height: 1, background: 'linear-gradient(to right, #2C3A8C, transparent)' }}
-              ></div>
-              <span className="font-inter text-[9px] font-bold tracking-[0.22em] uppercase leading-none" style={{ color: '#2C3A8C' }}>
-                Academy of Technology
-              </span>
+        <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
+            
+          {/* Logo Lockup */}
+          <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 group cursor-pointer no-underline">
+            <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
+            <div className="hidden sm:flex flex-col justify-center">
+              <div className={"serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase transition-colors duration-500 " + (navActive ? "text-[#3E3A36]" : "text-white")}>Trident</div>
+              <div className={"w-full h-[1px] my-[3px] transition-all duration-500 " + (navActive ? "bg-gradient-to-r from-[#1B4D8E] to-transparent" : "bg-gradient-to-r from-white/50 to-transparent")}></div>
+              <div className={"text-[9px] md:text-[10px] font-semibold tracking-[0.22em] uppercase leading-none transition-colors duration-500 " + (navActive ? "text-[#1B4D8E]" : "text-white/80")}>Academy of Technology</div>
             </div>
           </a>
 
-          {/* Desktop Nav — centered */}
-          <nav className="hidden lg:flex flex-grow justify-center" aria-label="Primary navigation">
-            <ul className="flex gap-8 list-none">
-              {navLinks.map(({ name, href }) => {
-                const isActive = name === 'Activities' // Current site site is Activities
-                return (
-                  <li key={name}>
-                    <a
-                      href={href}
-                      className={`font-inter text-[13px] font-extrabold uppercase tracking-[0.16em] whitespace-nowrap transition-all duration-300 relative group ${
-                        isActive ? 'text-brand-blue' : 'text-[#3E3A36] hover:text-brand-blue'
-                      }`}
-                    >
-                      {name}
-                      <span
-                        className={`absolute -bottom-[6px] left-0 h-[2px] bg-brand-blue transition-all duration-300 ${
-                          isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
-                        }`}
-                      ></span>
-                    </a>
-                  </li>
-                )
-              })}
+          {/* Desktop Nav */}
+          <nav className="hidden lg:block">
+            <ul className="flex items-center gap-6 list-none m-0 p-0">
+              {NAV_LINKS.map(item => (
+                <li key={item.label}>
+                  <a 
+                    href={item.href} 
+                    className={"text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 no-underline " + 
+                      (item.label === 'Activities' 
+                        ? (navActive ? "text-[#253386] border-b-2 border-[#253386]" : "text-white border-b-2 border-white") 
+                        : (navActive ? "text-[#3E3A36] hover:text-[#1B4D8E]" : "text-white/90 hover:text-white")
+                      )
+                    }
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
 
-          {/* CTA */}
-          <div className="hidden sm:block flex-shrink-0">
-            <a
-              href="https://apply-now.tekkzy.com/"
-              className="inline-block font-inter text-white text-[12px] font-bold uppercase tracking-[0.1em] px-7 py-3 rounded-md no-underline whitespace-nowrap transition-all hover:-translate-y-0.5"
-              style={{
-                background: '#E63946',
-                boxShadow: '0 4px 18px rgba(230,57,70,0.3)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#c1121f'
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(230,57,70,0.4)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#E63946'
-                e.currentTarget.style.boxShadow = '0 4px 18px rgba(230,57,70,0.3)'
-              }}
-            >
-              Apply Now
-            </a>
+          {/* CTA Elements */}
+          <div className="hidden lg:flex items-center gap-5">
+            <a href="https://apply-now.tekkzy.com/" className="text-[12px] font-bold px-7 py-3 rounded uppercase whitespace-nowrap no-underline transition-all duration-500 hover:opacity-90" style={{ backgroundColor: '#D3494B', color: '#ffffff' }}>Apply Now</a>
           </div>
 
           {/* Mobile Toggle */}
-          <button
-            className="lg:hidden flex items-center justify-center border-none rounded-lg p-2 cursor-pointer text-2xl transition-all relative z-[60] flex-shrink-0"
-            style={{ background: 'rgba(44,58,140,0.08)', color: '#2C3A8C' }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          <button 
+            className={"lg:hidden p-2 rounded-lg transition-colors active:scale-95 z-50 relative " + (navActive ? "text-[#253386] bg-soft hover:bg-primary/10" : "text-white bg-white/10 hover:bg-white/20")}
+            onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle Menu"
           >
-            {isMobileMenuOpen ? (
-              <i className="ph ph-x"></i>
-            ) : (
-              <i className="ph ph-list"></i>
-            )}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Drawer */}
-        <div
-          className={`absolute top-full left-0 w-full bg-white shadow-2xl overflow-hidden transition-all duration-500 border-t ${
-            isMobileMenuOpen
-              ? 'max-h-[85vh] opacity-100 py-6 overflow-y-auto'
-              : 'max-h-0 opacity-0 pointer-events-none'
+        <div 
+          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-[0_30px_60px_-15px_rgba(15,23,42,0.2)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-top overflow-hidden border-t border-primary/10 ${
+            mobileOpen ? "max-h-[85vh] opacity-100 py-6" : "max-h-0 opacity-0 py-0 pointer-events-none"
           }`}
-          style={{ borderColor: 'rgba(44,58,140,0.1)' }}
-          id="mobileDrawer"
         >
-          <div className="px-6 flex flex-col">
-            {navLinks.map(({ name, href }) => {
-              const isActive = name === 'Activities'
-              return (
-                <a
-                  key={name}
-                  href={href}
-                  className={`block py-3.5 px-4 font-inter text-[15px] font-extrabold uppercase tracking-[0.14em] no-underline border-b rounded-lg transition-all duration-300 ${
-                    isActive
-                      ? 'text-brand-blue bg-brand-blue/5 border-brand-blue/20'
-                      : 'text-[#3E3A36] hover:text-brand-blue hover:bg-brand-blue/5 border-brand-blue/5'
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {name}
-                </a>
-              )
-            })}
-            <div className="pt-6 px-2 pb-2">
-              <a
-                href="https://apply-now.tekkzy.com/"
-                className="block text-center font-inter text-white text-[13px] font-extrabold uppercase tracking-[0.2em] px-6 py-4 rounded-xl no-underline transition-all hover:-translate-y-0.5"
-                style={{
-                  background: '#E63946',
-                  boxShadow: '0 10px 30px rgba(230,57,70,0.4)',
+          <div className="px-6 flex flex-col h-full overflow-y-auto pb-4">
+            {NAV_LINKS.map((item, i) => (
+              <a 
+                key={item.label} 
+                href={item.href} 
+                onClick={() => setMobileOpen(false)}
+                className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform no-underline ${
+                  mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                }`}
+                style={{ 
+                  transitionDelay: `${mobileOpen ? i * 40 + 100 : 0}ms`, 
+                  borderBottom: i !== NAV_LINKS.length - 1 ? "1px solid rgba(27,77,142,0.1)" : "none" 
                 }}
-                onClick={() => setIsMobileMenuOpen(false)}
               >
+                {item.label}
+              </a>
+            ))}
+            <div 
+              className={`pt-8 px-2 transition-all duration-700 transform ${
+                mobileOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95"
+              }`} 
+              style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
+            >
+              <a onClick={() => setMobileOpen(false)} href="https://apply-now.tekkzy.com/" className="block text-center text-[13px] tracking-widest text-[#fff] font-extrabold px-6 py-4 rounded-xl shadow-lg transition-opacity hover:opacity-90 no-underline" style={{ backgroundColor: '#D3494B' }}>
                 START APPLICATION
               </a>
             </div>
@@ -184,5 +131,5 @@ export default function Header() {
         </div>
       </header>
     </div>
-  )
+  );
 }
