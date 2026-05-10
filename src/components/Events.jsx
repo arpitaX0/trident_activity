@@ -9,7 +9,7 @@ const events = [
     desc: 'The flagship annual cultural celebration — a platform to showcase talents across music, dance, drama, art, and the diverse spirit of Trident.',
     link: 'RELIVE THE MEMORIES',
     linkColor: '#E56D24',
-    href: 'https://tat.ac.in/trifest-2/',
+    href: 'https://activities-tat.tekkzy.com/trifest/',
   },
   {
     img: 'https://raw.githubusercontent.com/shubhranshux/trident/main/temp-app/src/assets/news_seminar.jpg',
@@ -19,7 +19,7 @@ const events = [
     desc: 'The annual technical festival — the ultimate challenge for young minds to solve real-world problems through technology and innovation.',
     link: 'EXPLORE PROJECTS',
     linkColor: '#2C3A8C',
-    href: 'https://tat.ac.in/udayan/',
+    href: 'https://activities-tat.tekkzy.com/udayan/',
   },
   {
     img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800',
@@ -29,7 +29,7 @@ const events = [
     desc: 'The annual Business Meet that brings together aspiring entrepreneurs, industry leaders, and innovative business ideas under one roof.',
     link: 'LEARN MORE',
     linkColor: '#349FCC',
-    href: 'https://tat.ac.in/elixer/',
+    href: 'https://activities-tat.tekkzy.com/elixir/',
   },
   {
     img: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=800',
@@ -39,7 +39,27 @@ const events = [
     desc: 'The intellectual group fostering critical thinking, academic debates, and scholarly discussions among students.',
     link: 'DISCOVER MORE',
     linkColor: '#E56D24',
-    href: 'https://tat.ac.in/manan-2/',
+    href: 'https://activities-tat.tekkzy.com/manan/',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800',
+    badge: 'SOCIAL SERVICE',
+    badgeBg: '#10B981',
+    title: 'KARTABYA',
+    desc: 'The social service wing dedicated to community development, awareness drives, and helping those in need.',
+    link: 'JOIN THE CAUSE',
+    linkColor: '#10B981',
+    href: 'https://activities-tat.tekkzy.com/kartabya/',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800',
+    badge: 'SPORTS & FITNESS',
+    badgeBg: '#8B5CF6',
+    title: 'TRIFIT',
+    desc: 'The fitness and sports initiative promoting physical wellbeing and a healthy lifestyle among students.',
+    link: 'STAY FIT',
+    linkColor: '#8B5CF6',
+    href: 'https://activities-tat.tekkzy.com/triFit/',
   },
 ]
 

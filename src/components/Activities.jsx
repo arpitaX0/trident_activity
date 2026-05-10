@@ -1,16 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 const activityCategories = [
-  {
-    title: 'Student Clubs',
-    description:
-      'Trident students have about 20 different Student clubs covering both cultural and academic platforms. Each club is guided by a Professor and a faculty coordinator and is managed by 6 students constituting the Governing body.',
-    icon: 'ph-fill ph-users-three',
-    color: '#2C3A8C',
-    gradient: 'linear-gradient(135deg, #2C3A8C 0%, #4a5bc7 100%)',
-    href: '#clubs',
-    stats: '20+ Clubs',
-  },
+
   {
     title: 'Extra Curricular',
     description:
@@ -18,7 +9,7 @@ const activityCategories = [
     icon: 'ph-fill ph-trophy',
     color: '#E56D24',
     gradient: 'linear-gradient(135deg, #E56D24 0%, #f09040 100%)',
-    href: '#sports',
+    href: 'https://activities-tat.tekkzy.com/extra-curricullar/',
     stats: '15+ Sports',
   },
   {
@@ -28,7 +19,7 @@ const activityCategories = [
     icon: 'ph-fill ph-book-open-text',
     color: '#349FCC',
     gradient: 'linear-gradient(135deg, #349FCC 0%, #5bc0de 100%)',
-    href: '#events',
+    href: 'https://activities-tat.tekkzy.com/co-curricular/',
     stats: '30+ Events',
   },
   {
@@ -38,7 +29,7 @@ const activityCategories = [
     icon: 'ph-fill ph-lightbulb-filament',
     color: '#8B5CF6',
     gradient: 'linear-gradient(135deg, #8B5CF6 0%, #a78bfa 100%)',
-    href: '#innovation',
+    href: 'https://activities-tat.tekkzy.com/innovation-&-entrepreneurship/',
     stats: 'Innovation Cell',
   },
   {
@@ -48,19 +39,10 @@ const activityCategories = [
     icon: 'ph-fill ph-soccer-ball',
     color: '#10B981',
     gradient: 'linear-gradient(135deg, #10B981 0%, #34d399 100%)',
-    href: '#sports',
+    href: 'https://activities-tat.tekkzy.com/sports-&-games/',
     stats: '10+ Facilities',
   },
-  {
-    title: 'TRILOGY — Annual Magazine',
-    description:
-      'The flagship annual magazine of Trident showcasing literary excellence, artistic expression, and the creative spirit of students and faculty alike.',
-    icon: 'ph-fill ph-newspaper',
-    color: '#EC4899',
-    gradient: 'linear-gradient(135deg, #EC4899 0%, #f472b6 100%)',
-    href: '#milestones',
-    stats: 'Annual Release',
-  },
+
   {
     title: 'IEDC',
     description:
@@ -68,19 +50,10 @@ const activityCategories = [
     icon: 'ph-fill ph-rocket-launch',
     color: '#F59E0B',
     gradient: 'linear-gradient(135deg, #F59E0B 0%, #fbbf24 100%)',
-    href: '#innovation',
+    href: 'https://activities-tat.tekkzy.com/iedc(activites)/',
     stats: 'Govt. Recognized',
   },
-  {
-    title: 'IEDC Projects',
-    description:
-      'Student-driven innovation projects funded and mentored through the IEDC, turning classroom ideas into real-world prototypes and solutions.',
-    icon: 'ph-fill ph-projector-screen-chart',
-    color: '#0EA5E9',
-    gradient: 'linear-gradient(135deg, #0EA5E9 0%, #38bdf8 100%)',
-    href: '#innovation',
-    stats: 'Active Projects',
-  },
+
   {
     title: 'Incubation Cell',
     description:
@@ -88,7 +61,7 @@ const activityCategories = [
     icon: 'ph-fill ph-atom',
     color: '#EF4444',
     gradient: 'linear-gradient(135deg, #EF4444 0%, #f87171 100%)',
-    href: '#innovation',
+    href: 'https://activities-tat.tekkzy.com/incubation-cell/',
     stats: 'Startup Support',
   },
 ]
@@ -294,41 +267,7 @@ export default function Activities() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16" data-animate>
-          <p
-            className="text-sm font-inter mb-6"
-            style={{ color: 'rgba(62,58,54,0.5)' }}
-          >
-            It is our goal to make student life, a complete one at Trident. Trident is second to
-            none in this respect and the students are assured of the best results.
-          </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <a
-              href="#clubs"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm text-white font-inter transition-all hover:-translate-y-0.5"
-              style={{
-                background: '#2C3A8C',
-                boxShadow: '0 4px 16px rgba(44,58,140,0.3)',
-              }}
-            >
-              <i className="ph ph-users-three" />
-              Discover Clubs
-            </a>
-            <a
-              href="#events"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm font-inter transition-all hover:-translate-y-0.5"
-              style={{
-                background: 'transparent',
-                border: '1px solid rgba(62,58,54,0.2)',
-                color: '#3E3A36',
-              }}
-            >
-              <i className="ph ph-calendar-dots" />
-              View Events
-            </a>
-          </div>
-        </div>
+
       </div>
     </section>
   )

@@ -76,42 +76,7 @@ export default function Hero() {
           Education in Trident is not just about books and classrooms. Students achieve and accomplish many goals through 20+ student clubs, annual festivals, innovation cells, and world-class sports facilities.
         </p>
 
-        {/* CTA Buttons */}
-        <div data-animate className="flex gap-4 flex-wrap">
-          <a
-            href="#clubs"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-sm text-white transition-all hover:-translate-y-0.5"
-            style={{ background: '#2C3A8C', boxShadow: '0 4px 16px rgba(44,58,140,0.4)' }}
-          >
-            Explore Student Clubs
-          </a>
-          <a
-            href="#events"
-            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-sm transition-all hover:-translate-y-0.5"
-            style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.3)', color: '#ffffff' }}
-          >
-            View Events
-          </a>
-        </div>
 
-        {/* Stats row */}
-        <div data-animate className="flex flex-wrap gap-8 mt-14">
-          {[
-            { value: '20+', label: 'Student Clubs' },
-            { value: '14', label: 'Technovation Clubs' },
-            { value: '10', label: 'Departmental Clubs' },
-            { value: '5+', label: 'Annual Festivals' },
-          ].map(({ value, label }) => (
-            <div key={label}>
-              <span className="font-display text-3xl font-bold" style={{ color: '#E56D24' }}>
-                {value}
-              </span>
-              <p className="text-xs uppercase tracking-[0.15em] mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                {label}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

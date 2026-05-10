@@ -6,7 +6,6 @@ import Leadership from './components/Leadership'
 import Sports from './components/Sports'
 import Events from './components/Events'
 
-import Milestones from './components/Milestones'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -35,9 +34,6 @@ export default function App() {
         <hr className="gradient-divider" />
 
         <Leadership />
-        <hr className="gradient-divider" />
-
-        <Milestones />
       </main>
 
       <Footer />

@@ -43,13 +43,7 @@ export default function Clubs() {
               Trident students have about 20 different Student clubs covering both cultural and academic platforms. Each club is guided by a Professor and managed by students.
             </p>
           </div>
-          <a
-            href="https://tat.ac.in/activities/co-curricullar/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all"
-            style={{ border: '1px solid rgba(62,58,54,0.2)', color: '#3E3A36' }}
-          >
-            View All Clubs <i className="ph ph-arrow-right"></i>
-          </a>
+
         </div>
 
         {/* Grid */}
