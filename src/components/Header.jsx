@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { Users, Menu, X } from "lucide-react";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 import logo from "../assets/logo.png";
+
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
 
 const NAV_LINKS = [
   { label: "About",       href: "https://about-tat.tekkzy.com/" },
@@ -17,40 +23,40 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50">
-      {/* Slim Utility Bar */}
-      <div className={"hidden lg:block border-b border-white/5 transition-all duration-500 " + (scrolled ? "max-h-0 overflow-hidden py-0 border-b-0" : "max-h-20 py-1.5")} style={{ background: 'linear-gradient(135deg, #1a2660 0%, #2C3A8C 60%, #3a4aad 100%)' }}>
-        <div className="max-w-[1400px] mx-auto px-6 xl:px-12 flex items-center justify-between">
-          <span className="text-[10px] font-semibold text-white/50 uppercase tracking-[0.2em]">
-            Approved by AICTE &nbsp;|&nbsp; Affiliated to BPUT &nbsp;|&nbsp; NAAC Accredited &nbsp;|&nbsp; NBA Accredited for 6 Programmes
+    <div className="fixed top-0 left-0 w-full z-[1050]">
+      {/* 1. UTILITY BAR */}
+      <div className={cn(
+        "hidden lg:block bg-[#253386] border-b border-white/10 transition-all duration-500 overflow-hidden",
+        scrolled ? "max-h-0 py-0 opacity-0" : "max-h-20 py-2.5 opacity-100"
+      )}>
+        <div className="max-w-7xl mx-auto px-6 xl:px-12 flex justify-between items-center text-[11px] font-semibold text-white/80 tracking-widest uppercase">
+          <span>
+            Affiliated to BPUT <span className="mx-2 text-brand-yellow">|</span> NAAC &apos;A&apos; Accredited
           </span>
-          <div className="flex items-center gap-3">
-            {/* Alumni Portal */}
-            <a href="https://alumni-tat.tekkzy.com/" className="flex items-center gap-1.5 text-[10px] font-bold text-[#E8BD63] uppercase tracking-widest hover:text-[#F0D080] transition-colors whitespace-nowrap">
-              <Users size={11}/> Alumni
-            </a>
-          </div>
+          <a href="https://alumni-tat.tekkzy.com/" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <Users size={12} />
+            Alumni
+          </a>
         </div>
       </div>
 
-      <header 
-        className={"relative transition-all duration-500 bg-white shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)] " + (scrolled ? "py-3" : "py-5")}
-      >
+      {/* 2. MAIN HEADER */}
+      <header className={cn("bg-white transition-all duration-500", scrolled ? "py-3 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.12)]" : "py-5")}>
         <div className="mx-auto px-6 xl:px-12 flex items-center justify-between">
-            
+          
           {/* Logo Lockup */}
-          <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 group cursor-pointer no-underline">
-            <img src={logo} alt="TAT Logo" className="w-12 h-12 md:w-[52px] md:h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
+          <a href="https://tat.tekkzy.com/" className="flex items-center gap-3.5 group cursor-pointer">
+            <img src={logo} alt="TAT Logo" className="w-[52px] h-[52px] object-contain flex-shrink-0 drop-shadow-sm" />
             <div className="hidden sm:flex flex-col justify-center">
-              <div className="serif text-[22px] md:text-[24px] font-black leading-none tracking-[0.04em] uppercase text-[#3E3A36]">Trident</div>
-              <div className="w-full h-[1px] my-[3px] bg-gradient-to-r from-[#1B4D8E] to-transparent"></div>
-              <div className="text-[9px] md:text-[10px] font-semibold tracking-[0.22em] uppercase leading-none text-[#1B4D8E]">Academy of Technology</div>
+              <div className="serif text-[24px] font-black text-[#3E3A36] leading-none tracking-wider uppercase">Trident</div>
+              <div className="w-full h-[1px] bg-gradient-to-r from-[#1B4D8E] to-transparent my-1"></div>
+              <div className="text-[10px] font-semibold text-[#1B4D8E] tracking-[0.22em] uppercase leading-none">Academy of Technology</div>
             </div>
           </a>
 
@@ -61,7 +67,7 @@ export default function Header() {
                 <li key={item.label}>
                   <a 
                     href={item.href} 
-                    className={"text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-extrabold transition-colors duration-500 no-underline " + 
+                    className={"text-[14px] uppercase tracking-[0.14em] cursor-pointer whitespace-nowrap font-bold transition-colors duration-500 no-underline " + 
                       (item.label === 'Activities' 
                         ? "text-[#253386] border-b-2 border-[#253386]" 
                         : "text-[#3E3A36] hover:text-[#1B4D8E]"
@@ -82,7 +88,7 @@ export default function Header() {
 
           {/* Mobile Toggle */}
           <button 
-            className="lg:hidden p-2 rounded-lg transition-colors active:scale-95 z-50 relative text-[#253386] bg-soft hover:bg-primary/10"
+            className="lg:hidden text-[#253386] p-2 bg-soft rounded-lg hover:bg-primary/10 transition-colors active:scale-95 z-50 relative" 
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle Menu"
           >
@@ -90,10 +96,12 @@ export default function Header() {
           </button>
         </div>
 
+        {/* Mobile Nav */}
         <div 
-          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-[0_30px_60px_-15px_rgba(15,23,42,0.2)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-top overflow-hidden border-t border-primary/10 ${
+          className={cn(
+            "lg:hidden absolute top-full left-0 w-full bg-white shadow-[0_30px_60px_-15px_rgba(15,23,42,0.2)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] origin-top overflow-hidden border-t border-primary/10",
             mobileOpen ? "max-h-[85vh] opacity-100 py-6" : "max-h-0 opacity-0 py-0 pointer-events-none"
-          }`}
+          )}
         >
           <div className="px-6 flex flex-col h-full overflow-y-auto pb-4">
             {NAV_LINKS.map((item, i) => (
@@ -101,7 +109,7 @@ export default function Header() {
                 key={item.label} 
                 href={item.href} 
                 onClick={() => setMobileOpen(false)}
-                className={`block py-3.5 text-[15px] font-extrabold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-primary hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform no-underline ${
+                className={`block py-3.5 text-[15px] font-bold text-[#3E3A36] uppercase tracking-[0.14em] hover:text-[#253386] hover:bg-soft/50 rounded-lg px-3 transition-all duration-500 transform no-underline ${
                   mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
                 }`}
                 style={{ 
@@ -118,7 +126,7 @@ export default function Header() {
               }`} 
               style={{ transitionDelay: `${mobileOpen ? NAV_LINKS.length * 40 + 150 : 0}ms` }}
             >
-              <a onClick={() => setMobileOpen(false)} href="https://apply-now.tekkzy.com/" className="block text-center text-[13px] tracking-widest text-[#fff] font-extrabold px-6 py-4 rounded-xl shadow-lg transition-opacity hover:opacity-90 no-underline" style={{ backgroundColor: '#D3494B' }}>
+              <a onClick={() => setMobileOpen(false)} href="https://apply-now.tekkzy.com/" className="block text-center text-[13px] tracking-widest text-[#fff] font-bold px-6 py-4 rounded-xl shadow-lg transition-opacity hover:opacity-90 no-underline" style={{ backgroundColor: '#D3494B' }}>
                 START APPLICATION
               </a>
             </div>

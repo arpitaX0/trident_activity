@@ -4,11 +4,19 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /(bg|text|border)-brand-(green|red|orange|brown|yellow|blue|sky)/,
+      variants: ['hover', 'group-hover'],
+    },
+  ],
   theme: {
     extend: {
       colors: {
         'primary': '#2C3A8C',
+        'primary-rose': '#2C3A8C',
         'secondary': '#A59381',
+        'secondary-beige': '#A59381',
         'soft': '#EAE0D5',
         'brand-blue': '#2C3A8C',
         'brand-orange': '#E56D24',
@@ -17,6 +25,8 @@ export default {
         'brand-yellow': '#F0B823',
         'brand-sky': '#349FCC',
         'brand-green': '#2D9A47',
+        'accent-red': '#EF4444',
+        'accent-green': '#22C55E',
         'bg-light': '#EFE7DF',
         'bg-soft': '#F5EEEC',
         'bg-base': '#EFE7DF',

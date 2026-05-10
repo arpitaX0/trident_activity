@@ -9,7 +9,7 @@ const clubs = [
   { img: 'assets/club_robot_1775284912133.png', icon: 'ph ph-robot', name: 'Robo-Trident', desc: 'Building the future, one gear at a time.', delay: 320 },
   { img: 'assets/club_code_1775285013076.png', icon: 'ph ph-code', name: 'Code Wizards', desc: 'Algorithms, hackathons, and software innovation.', delay: 400 },
   { img: 'https://raw.githubusercontent.com/shubhranshux/trident/main/temp-app/src/assets/cta_innovation_lab.jpg', icon: 'ph ph-flower-lotus', name: 'Divinity & Wellness Club', desc: 'Yoga, meditation, and holistic well-being practices.', delay: 480 },
-  { img: 'https://raw.githubusercontent.com/shubhranshux/trident/main/temp-app/src/assets/indian_business_presentation.png', icon: 'ph ph-device-mobile', name: 'App Genesis', desc: 'Mobile innovations and app development for modern life.', delay: 560 },
+  { img: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=600', icon: 'ph ph-device-mobile', name: 'App Genesis', desc: 'Mobile innovations and app development for modern life.', delay: 560 },
 ]
 
 export default function Clubs() {

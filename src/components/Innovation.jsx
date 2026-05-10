@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 const labs = [
-  { img: 'https://raw.githubusercontent.com/shubhranshux/trident/main/temp-app/src/assets/prog_computer_science.jpg', title: 'ED Cell — Entrepreneurship Development', delay: 100 },
+  { img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600', title: 'ED Cell — Entrepreneurship Development', delay: 100 },
   { img: 'https://raw.githubusercontent.com/shubhranshux/trident/main/temp-app/src/assets/cta_innovation_lab.jpg', title: 'IEDC — Innovation & Entrepreneurship Development Centre', delay: 200 },
   { img: 'https://raw.githubusercontent.com/shubhranshux/trident/main/temp-app/src/assets/cta_research_scholars.jpg', title: 'Incubation Cell — Startup Support', delay: 300 },
 ]
@@ -71,7 +71,7 @@ export default function Innovation() {
             style={{ height: 420 }}
           >
             <img
-              src="https://raw.githubusercontent.com/shubhranshux/trident/main/temp-app/src/assets/indian_engineering_lab.png"
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
               alt="Innovation Lab at TAT"
               className="w-full h-full object-cover"
             />
